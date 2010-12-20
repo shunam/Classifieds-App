@@ -1,0 +1,36 @@
+<%= render :partial => "header.html" %>
+<% unless @results.blank? %>
+<div class="pic_header detail_content float_left margin_padding">
+  <% @results.each do |date, values| %>
+    <div class="table_head margin_padding">
+      <h3><%= date.strftime("%A %d %B %Y") %></h3>
+    </div>
+    <div class="margin_padding">
+      <% values.each do |value| %>
+        <div class="float_left table_content_price">
+          <p><%= value.price %></p>
+        </div>
+        <div class="float_left table_content_classified">
+          <p><%= value.title %></p>
+        </div>
+        <div class="float_left table_content_typed">
+          <p><%= value.typed_location %></p>
+        </div>
+        <div class="float_left table_content_classified">
+          <p><%= value.sub_category_name %></p>
+        </div>
+        <div class="float_left table_content_location">
+          <p><%= value.location_name %></p>
+        </div>
+        <div class="clear"></div>
+      <% end %>
+    </div>
+  <% end %>
+      <%= will_paginate @classifieds, :params => { :location_id => params[:location_id], :category_id => params[:category_id],
+      :sub_category_id => params[:sub_category_id]}, :renderer => PaginationListLinkRenderer, :container => true %>
+</div>
+<% else %>
+<div class="pic_header detail_content float_left margin_padding">
+  No Classifieds
+</div>
+<% end %>

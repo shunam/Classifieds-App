@@ -30,6 +30,19 @@ class HomeController < ApplicationController
     @classified = Classified.find(params[:id])
   end
 
+  def result
+    @results = {}
+    @classifieds = Classified.paginate(:page => params[:page], :order => "created_at DESC", :conditions => ["location_id = ? AND category_id = ? AND sub_category_id = ?", params[:location_id], params[:category_id], params[:sub_category_id]]).each do |classified|
+      date = classified.created_at.to_date
+      if @results[date].blank?
+        @results[date] = [classified]
+      else
+        @results[date] << classified
+      end
+    end
+    @results = @results.sort.reverse
+  end
+
   private
 
   def find_categories_and_locations

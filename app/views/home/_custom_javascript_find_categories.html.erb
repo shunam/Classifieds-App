@@ -1,24 +1,28 @@
 <script>
   jQuery(document).ready(function($){
     var sub_category_housings = {
+      <%= "'0' : 'all'," if all %>
       <% @sub_category_housings.each do |sc| -%>
         <%= "'#{sc[0]}' : '#{sc[1]}' #{',' if sc != @sub_category_housings.last }" %>
       <% end %>
     };
 
     var sub_category_for_sales = {
+      <%= "'0' : 'all'," if all %>
       <% @sub_category_for_sales.each do |sc| -%>
         <%= "'#{sc[0]}' : '#{sc[1]}' #{',' if sc != @sub_category_for_sales.last }" %>
       <% end %>
     };
 
     var sub_category_services = {
+      <%= "'0' : 'all'," if all %>
       <% @sub_category_services.each do |sc| -%>
         <%= "\"#{sc[0]}\" : \"#{sc[1]}\" #{',' if sc != @sub_category_services.last }" %>
       <% end %>
     };
 
     var sub_category_jobs = {
+      <%= "'0' : 'all'," if all %>
       <% @sub_category_jobs.each do |sc| -%>
         <%= "'#{sc[0]}' : '#{sc[1]}' #{',' if sc != @sub_category_jobs.last }" %>
       <% end %>
