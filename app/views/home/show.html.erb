@@ -1,0 +1,38 @@
+<%= render :partial => "header.html" %>
+<div class="pic_header detail_content float_left margin_padding">
+  <input type="submit" value="Back to results" class="float_right"/>
+  <div class="clear"></div>
+  <br/>
+  <div class="margin_padding">
+    <div class="float_left table_content_price">
+      <p><%= @classified.price %></p>
+    </div>
+    <div class="float_left table_content_classified">
+      <p><%= @classified.title %></p>
+    </div>
+    <div class="float_left table_content_typed remove_border">
+      <p><%= @classified.location_name %></p>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="separator"></div>
+  <p>Date: <%= @classified.created_at %><br/>
+    Posted by: firstname_lastname (link_user_name_profile)
+  </p>
+  <div class="separator"></div>
+  <p>
+   <%= @classified.description %>
+  </p>
+  <br/>
+  <div class="image_150 float_left">
+    <img src="" alt="image 150"/>
+  </div>
+  <div class="image_180 float_left">
+    <img src="" alt="image 180"/>
+  </div>
+  <div class="clear"></div>
+  <div class="separator"></div>
+  <p>
+    Posting ID : <%= @classified.id %>
+  </p>
+  <div class="separator"></div>

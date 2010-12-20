@@ -1,0 +1,19 @@
+<%= render :partial => "custom_javascript_find_categories.html" %>
+<div class="pic_header float_left header margin_padding">
+  <div class="float_left">
+    <p>
+      <a href="#">HOME</a>&nbsp;&gt;&nbsp;
+      <a href="#">CATEGORY</a>&nbsp;&gt;&nbsp;
+      <%= select_tag "category_id", options_for_select(@categories.collect{|x| [x.name,x.id]}), :id => "classified_category_id" %>&nbsp;&gt;&nbsp;
+      <%= select_tag "sub_category_id", options_for_select(@sub_category_housings.collect{|x| [x[1],x[0]]}), :id => "classified_sub_category_id" %>
+    </p>
+    <p>
+      <a href="#">HOME</a>&nbsp;&gt;&nbsp;
+      <a href="#">Location</a>&nbsp;&gt;&nbsp;
+      <%= select_tag "location_id", options_for_select(@locations.collect{|x| [x.name,x.id]}) %>
+    </p>
+    <div class="clear"></div>
+  </div>
+  <input type="submit" value="GO" class="float_right margin_padding button"/>
+  <div class="app_clear">&nbsp;</div>
+</div>

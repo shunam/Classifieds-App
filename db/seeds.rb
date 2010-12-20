@@ -7,8 +7,8 @@
 #   Major.create(:name => 'Daley', :city => cities.first)
 
 sql = ActiveRecord::Base.connection()
-sql.execute('TRUNCATE TABLE `categories` ')
 
+sql.execute('TRUNCATE TABLE `categories` ')
 Category.create([
     #HOUSING
     { :id => 1, :name => "housing" },
@@ -121,3 +121,31 @@ Category.create([
     { :id => 102, :name => '[ETC]', :parent_id => 70 },
     { :id => 103, :name => '[ part-time ]', :parent_id => 70 }
   ])
+
+sql.execute('TRUNCATE TABLE `locations` ')
+Location.create([
+    { :id => 1, :name => "Brussels"},
+    { :id => 2, :name => "Liege"},
+    { :id => 3, :name => "Namur"},
+    { :id => 4, :name => "Province Luxembourg"},
+    { :id => 5, :name => "Walloon Brabant"},
+    { :id => 6, :name => "Hainaut"},
+    { :id => 7, :name => "Flemish Brabant"},
+    { :id => 8, :name => "West Flanders"},
+    { :id => 9, :name => "Limburg"},
+    { :id => 10, :name => "East Flanders"},
+    { :id => 11, :name => "Antwerpen"},
+  ])
+
+
+
+
+
+
+
+
+
+
+
+
+

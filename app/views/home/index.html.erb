@@ -5,35 +5,22 @@
   <div class="clear"></div>
 </div>
 <div class="pic_header detail_content float_left margin_padding">
-  <%= button_to "> Posts to classifieds", post_classified_path, {:class => "float_right"} %>
+  <%= button_to "> Posts to classifieds",post_classified_path, {:class => "float_right", :method => :get} %>
   <div class="clear"></div>
   <br/>
   <div class="subcategory_1 float_left">
     <table width="100%">
       <thead>
         <tr>
-          <td class="table_head margin_padding">Category 1</td>
+          <td class="table_head margin_padding">Housing</td>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td><p>subcategory 1</p></td>
-        </tr>
-        <tr>
-          <td><p>subcategory 1</p></td>
-        </tr>
-        <tr>
-          <td><p>subcategory 1</p></td>
-        </tr>
-        <tr>
-          <td><p>subcategory 1</p></td>
-        </tr>
-        <tr>
-          <td><p>subcategory 1</p></td>
-        </tr>
-        <tr>
-          <td><p>subcategory 1</p></td>
-        </tr>
+        <% @sub_category_housings.each do |house| %>
+          <tr>
+            <td><p><%= house.name %></p></td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
@@ -45,16 +32,17 @@
       <col class="col"/>
       <thead>
         <tr>
-          <td colspan="4"  class="table_head margin_padding">Category 2</td>
+          <td colspan="4"  class="table_head margin_padding">For Sale</td>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td><p>subcategory 1</p></td>
-          <td><p>subcategory 1</p></td>
-          <td><p>subcategory 1</p></td>
-          <td><p>subcategory 1</p></td>
-        </tr>
+        <% @sub_category_for_sales.each do |for_sales| %>
+          <tr>
+            <% for_sales.each do |for_sale| %>
+              <td><p><%= for_sale.name %></p></td>
+            <% end %>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
@@ -66,15 +54,17 @@
       <col class="col"/>
       <thead>
         <tr>
-          <td colspan="4"  class="table_head margin_padding">Category 3</td>
+          <td colspan="4"  class="table_head margin_padding">Services</td>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td><p>subcategory 1</p></td>
-          <td><p>subcategory 1</p></td>
-          <td><p>subcategory 1</p></td>
-        </tr>
+        <% @sub_category_services.each do |services| %>
+          <tr>
+            <% services.each do |service| %>
+              <td><p><%= service.name %></p></td>
+            <% end %>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
@@ -84,14 +74,17 @@
       <col class="col"/>
       <thead>
         <tr>
-          <td colspan="2"  class="table_head margin_padding">Category 4</td>
+          <td colspan="2"  class="table_head margin_padding">Jobs</td>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td><p>subcategory 1</p></td>
-          <td><p>subcategory 1</p></td>
-        </tr>
+        <% @sub_category_jobs.each do |jobs| %>
+          <tr>
+            <% jobs.each do |job| %>
+              <td><p><%= job.name %></p></td>
+            <% end %>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>

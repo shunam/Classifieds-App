@@ -1,3 +1,5 @@
+<%= render :partial => "custom_javascript_find_categories.html" %>
+
 <div class="pic_header float_left header margin_padding">
   <h1 class="h_center">
     Free classifieds between fellows : free, easy and fast.
@@ -5,54 +7,70 @@
   <div class="clear"></div>
 </div>
 <div class="pic_header detail_content float_left margin_padding">
-  <div class="subcategory_1 float_left">
-    <p>Posting Title:</p>
-  </div>
-  <div class="subcategory_2 float_left">
-    <input type="text" class="input_classified"/>
-  </div>
-  <div class="app_clear">&nbsp;</div>
-  <div class="subcategory_1 float_left">
-    <p>Price:</p>
-  </div>
-  <div class="subcategory_2 float_left">
-    <input type="text" class="input_classified"/>
-  </div>
-  <div class="app_clear">&nbsp;</div>
-  <div class="subcategory_1 float_left">
-    <p>Specific Location:</p>
-  </div>
-  <div class="subcategory_2 float_left">
-    <input type="text" class="input_classified"/>
-  </div>
-  <div class="app_clear">&nbsp;</div>
-  <div class="subcategory_1 float_left">
-    <p>Miscellaneous:</p>
-  </div>
-  <div class="subcategory_2 float_left">
-    <input type="text" class="input_classified"/>
-  </div>
-  <div class="app_clear">&nbsp;</div>
-  <div class="subcategory_1 float_left">
-    <p>Posting Description:</p>
-  </div>
-  <div class="subcategory_2 float_left">
-    <input type="text" class="input_classified input_height"/>
-  </div>
-  <div class="app_clear">&nbsp;</div>
-  <div class="subcategory_1 float_left">
-    <p>Add / Edit images:</p>
-  </div>
-  <div class="subcategory_2 float_left">
-    <input type="file"/><a href="#">Upload</a><br/>
-    <img src="" alt="pic1" class="float_left pic_post"/>
-    <img src="" alt="pic1" class="float_left pic_post"/>
-    <img src="" alt="pic1" class="float_left pic_post"/>
-  </div>
-  <div class="app_clear">&nbsp;</div>
-  <div class="separator"></div>
-  <div>
-    <input type="submit" value="post" class="float_right"/>
-    <a href="#" class="float_right margin_padding"><p>Cancel</p></a>
-  </div>
+  <% form_for @classified, :url => create_post_classified_path do |f| %>
+    <div class="subcategory_1 float_left">
+      <p>Posting Title:</p>
+    </div>
+    <div class="subcategory_2 float_left">
+      <%= f.text_field :title, :class => "input_classified" %>
+    </div>
+    <div class="app_clear">&nbsp;</div>
+    <div class="subcategory_1 float_left">
+      <p>Price:</p>
+    </div>
+    <div class="subcategory_2 float_left">
+      <%= f.text_field :price, :class => "input_classified" %>
+    </div>
+    <div class="app_clear">&nbsp;</div>
+    <div class="subcategory_1 float_left">
+      <p>Specific Location:</p>
+    </div>
+    <div class="subcategory_2 float_left">
+      <%= f.select :location_id, @locations.collect{|x| [x.name,x.id]} %>
+    </div>
+    <div class="app_clear">&nbsp;</div>
+    <div class="subcategory_1 float_left">
+      <p>Category:</p>
+    </div>
+    <div class="subcategory_2 float_left">
+      <%= f.select :category_id, @categories.collect{|x| [x.name,x.id]} %>
+    </div>
+    <div class="app_clear">&nbsp;</div>
+    <div class="subcategory_1 float_left">
+      <p>Sub Category:</p>
+    </div>
+    <div class="subcategory_2 float_left">
+      <%= f.select :sub_category_id, @sub_category_housings.collect{|x| [x[1],x[0]]} %>
+    </div>
+    <div class="app_clear">&nbsp;</div>
+    <div class="subcategory_1 float_left">
+      <p>Miscellaneous:</p>
+    </div>
+    <div class="subcategory_2 float_left">
+      <%= f.text_field :misc, :class => "input_classified" %>
+    </div>
+    <div class="app_clear">&nbsp;</div>
+    <div class="subcategory_1 float_left">
+      <p>Posting Description:</p>
+    </div>
+    <div class="subcategory_2 float_left">
+      <%= f.text_area :description, :class => "input_classified input_height" %>
+    </div>
+    <div class="app_clear">&nbsp;</div>
+    <div class="subcategory_1 float_left">
+      <p>Add / Edit images:</p>
+    </div>
+    <div class="subcategory_2 float_left">
+      <input type="file"/><a href="#">Upload</a><br/>
+      <img src="" alt="pic1" class="float_left pic_post"/>
+      <img src="" alt="pic1" class="float_left pic_post"/>
+      <img src="" alt="pic1" class="float_left pic_post"/>
+    </div>
+    <div class="app_clear">&nbsp;</div>
+    <div class="separator"></div>
+    <div>
+      <input type="submit" value="post" class="float_right"/>
+      <a href="#" class="float_right margin_padding"><p>Cancel</p></a>
+    </div>
+  <% end %>
 </div>
