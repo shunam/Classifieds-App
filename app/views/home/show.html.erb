@@ -24,12 +24,11 @@
    <%= @classified.description %>
   </p>
   <br/>
-  <div class="image_150 float_left">
-    <img src="" alt="image 150"/>
-  </div>
-  <div class="image_180 float_left">
-    <img src="" alt="image 180"/>
-  </div>
+  <% @classified.pictures.each do |picture| %>
+    <div class="image_150 float_left">
+      <%= image_tag (picture.public_filename(:thumb_150)) %>
+    </div>
+  <% end %>
   <div class="clear"></div>
   <div class="separator"></div>
   <p>

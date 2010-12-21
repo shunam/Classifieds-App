@@ -21,6 +21,9 @@ class HomeController < ApplicationController
 
   def create_classified
     @classified = Classified.new(params[:classified])
+    params[:pictures].each do |k,value|
+      @classified.pictures << Picture.new(value)
+    end
     if @classified.save
       redirect_to show_classified_path(@classified)
     end

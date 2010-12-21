@@ -7,6 +7,7 @@
     </div>
     <div class="margin_padding">
       <% values.each do |value| %>
+      <a href="<%= show_classified_path(value)%>">
         <div class="float_left table_content_price">
           <p><%= value.price %></p>
         </div>
@@ -22,7 +23,9 @@
         <div class="float_left table_content_location">
           <p><%= value.location_name %></p>
         </div>
+      </a>
         <div class="clear"></div>
+
       <% end %>
     </div>
   <% end %>

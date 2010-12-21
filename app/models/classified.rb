@@ -1,5 +1,5 @@
 class Classified < ActiveRecord::Base
-  belongs_to :picture
+  has_many :pictures
 
   cattr_reader :per_page
   @@per_page = 100

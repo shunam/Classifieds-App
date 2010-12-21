@@ -7,7 +7,7 @@
   <div class="clear"></div>
 </div>
 <div class="pic_header detail_content float_left margin_padding">
-  <% form_for @classified, :url => create_post_classified_path do |f| %>
+  <% form_for @classified, :url => create_post_classified_path, :html => {:multipart => true} do |f| %>
     <div class="subcategory_1 float_left">
       <p>Posting Title:</p>
     </div>
@@ -60,17 +60,17 @@
     <div class="subcategory_1 float_left">
       <p>Add / Edit images:</p>
     </div>
-    <div class="subcategory_2 float_left">
-      <input type="file"/><a href="#">Upload</a><br/>
-      <img src="" alt="pic1" class="float_left pic_post"/>
-      <img src="" alt="pic1" class="float_left pic_post"/>
-      <img src="" alt="pic1" class="float_left pic_post"/>
+    <div id="image_list" class="subcategory_2 float_left">
+      <%= file_field_tag "pictures[1][uploaded_data]", :size => "20" %>
+      <%= file_field_tag "pictures[2][uploaded_data]", :size => "20" %>
+      <%= file_field_tag "pictures[3][uploaded_data]", :size => "20" %>
+      <%= file_field_tag "pictures[4][uploaded_data]", :size => "20" %>
     </div>
     <div class="app_clear">&nbsp;</div>
     <div class="separator"></div>
     <div>
       <input type="submit" value="post" class="float_right"/>
-      <a href="#" class="float_right margin_padding"><p>Cancel</p></a>
+        <%= link_to "<p>Cancel</p>", :back , :class => "float_right margin_padding" %>
     </div>
   <% end %>
 </div>
