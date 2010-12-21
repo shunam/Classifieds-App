@@ -28,11 +28,23 @@ class HomeController < ApplicationController
 
   def show
     @classified = Classified.find(params[:id])
+    params[:category_id] = @classified.category_id
+    params[:location_id] = @classified.location_id
+    params[:sub_category_id] = @classified.sub_category_id
   end
 
   def result
     @results = {}
-    @classifieds = Classified.paginate(:page => params[:page], :order => "created_at DESC", :conditions => ["location_id = ? AND category_id = ? AND sub_category_id = ?", params[:location_id], params[:category_id], params[:sub_category_id]]).each do |classified|
+    conditions = []
+    conditions << "location_id = #{params[:location_id]}" unless params[:location_id].blank?
+    unless params[:category_id].blank?
+      conditions << "category_id = #{params[:category_id]}"
+      @category = Category.find(params[:category_id])
+      @sub_categories = @category.children.collect{|x| [x.id, x.name]}
+    end
+    conditions << "sub_category_id = #{params[:sub_category_id]}" unless params[:sub_category_id].blank?
+
+    @classifieds = Classified.paginate(:page => params[:page], :order => "created_at DESC", :conditions => conditions.join(" AND ")).each do |classified|
       date = classified.created_at.to_date
       if @results[date].blank?
         @results[date] = [classified]

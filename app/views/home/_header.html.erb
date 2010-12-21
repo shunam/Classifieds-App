@@ -3,15 +3,15 @@
   <% form_tag result_classified_path do %>
     <div class="float_left">
       <p>
-        <a href="#">HOME</a>&nbsp;&gt;&nbsp;
-        <a href="#">CATEGORY</a>&nbsp;&gt;&nbsp;
-        <%= select_tag "category_id", options_for_select(@categories.collect{|x| [x.name,x.id]}), :id => "classified_category_id" %>&nbsp;&gt;&nbsp;
-        <%= select_tag "sub_category_id", options_for_select([["all",0]] + @sub_category_housings.collect{|x| [x[1],x[0]]}), :id => "classified_sub_category_id" %>
+        <%= link_to "HOME", root_path %>&nbsp;&gt;&nbsp;
+        CATEGORY&nbsp;&gt;&nbsp;
+        <%= select_tag "category_id", options_for_select(@categories.collect{|x| [x.name,x.id]}, params[:category_id].to_i), :id => "classified_category_id" %>&nbsp;&gt;&nbsp;
+        <%= select_tag "sub_category_id", options_for_select([["all",0]] + (@sub_categories || @sub_category_housings).collect{|x| [x[1],x[0]]}, params[:sub_category_id].to_i), :id => "classified_sub_category_id" %>
       </p>
       <p>
-        <a href="#">HOME</a>&nbsp;&gt;&nbsp;
-        <a href="#">Location</a>&nbsp;&gt;&nbsp;
-        <%= select_tag "location_id", options_for_select(@locations.collect{|x| [x.name,x.id]}) %>
+        <%= link_to "HOME", root_path %>&nbsp;&gt;&nbsp;
+        Location&nbsp;&gt;&nbsp;
+        <%= select_tag "location_id", options_for_select(@locations.collect{|x| [x.name,x.id]}, params[:location_id].to_i) %>
       </p>
       <div class="clear"></div>
     </div>

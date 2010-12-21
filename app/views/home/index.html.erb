@@ -12,13 +12,13 @@
     <table width="100%">
       <thead>
         <tr>
-          <td class="table_head margin_padding">Housing</td>
+          <td class="table_head margin_padding"><%= link_to "Housing", result_classified_path+"?category_id=1" %></td>
         </tr>
       </thead>
       <tbody>
         <% @sub_category_housings.each do |house| %>
           <tr>
-            <td><p><%= house.name %></p></td>
+            <td><p><%= link_to house.name, result_classified_path+"?category_id=1&sub_category_id=#{house.id}" %></p></td>
           </tr>
         <% end %>
       </tbody>
@@ -32,14 +32,14 @@
       <col class="col"/>
       <thead>
         <tr>
-          <td colspan="4"  class="table_head margin_padding">For Sale</td>
+          <td colspan="4"  class="table_head margin_padding"><%= link_to "For Sale", result_classified_path+"?category_id=11" %></td>
         </tr>
       </thead>
       <tbody>
         <% @sub_category_for_sales.each do |for_sales| %>
           <tr>
             <% for_sales.each do |for_sale| %>
-              <td><p><%= for_sale.name %></p></td>
+              <td><p><%= link_to for_sale.name, result_classified_path+"?category_id=11&sub_category_id=#{for_sale.id}" %></p></td>
             <% end %>
           </tr>
         <% end %>
@@ -54,14 +54,14 @@
       <col class="col"/>
       <thead>
         <tr>
-          <td colspan="4"  class="table_head margin_padding">Services</td>
+          <td colspan="4"  class="table_head margin_padding"><%= link_to "Services", result_classified_path+"?category_id=48" %></td>
         </tr>
       </thead>
       <tbody>
         <% @sub_category_services.each do |services| %>
           <tr>
             <% services.each do |service| %>
-              <td><p><%= service.name %></p></td>
+              <td><p><%= link_to service.name, result_classified_path+"?category_id=48&sub_category_id=#{service.id}" %></p></td>
             <% end %>
           </tr>
         <% end %>
@@ -74,14 +74,14 @@
       <col class="col"/>
       <thead>
         <tr>
-          <td colspan="2"  class="table_head margin_padding">Jobs</td>
+          <td colspan="2"  class="table_head margin_padding"><%= link_to "Jobs", result_classified_path+"?category_id=70" %></td>
         </tr>
       </thead>
       <tbody>
         <% @sub_category_jobs.each do |jobs| %>
           <tr>
             <% jobs.each do |job| %>
-              <td><p><%= job.name %></p></td>
+              <td><p><%= link_to job.name, result_classified_path+"?category_id=70&sub_category_id=#{job.id}" %></p></td>
             <% end %>
           </tr>
         <% end %>
