@@ -5,7 +5,7 @@ class Picture < ActiveRecord::Base
                   :content_type => :image,
                   :max_size => 4.megabytes,
                   :thumbnails => { :thumb_150 => [150,150] },
-                  :processor => "mini_magick"
+                  :processor => :image_science
 
   validates_as_attachment
 end
