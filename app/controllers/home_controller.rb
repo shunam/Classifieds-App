@@ -20,9 +20,17 @@ class HomeController < ApplicationController
   end
 
   def create_classified
+    prepare_token
+    response = @access_token.post('/API/user_info', "token=#{session["token_#{session[:fellownation_user_id]}"]}")
+    result = ActiveSupport::JSON.decode(response.body)["results"]
     @classified = Classified.new(params[:classified])
-    params[:pictures].each do |k,value|
-      @classified.pictures << Picture.new(value)
+    @classified.first_name = result["first_name"]
+    @classified.last_name = result["last_name"]
+    @classified.url = result["public_URL"]
+    unless params[:pictures].blank?
+      params[:pictures].each do |k,value|
+        @classified.pictures << Picture.new(value)
+      end
     end
     if @classified.save
       redirect_to show_classified_path(@classified)
@@ -39,14 +47,14 @@ class HomeController < ApplicationController
   def result
     @results = {}
     conditions = []
-    conditions << "location_id = #{params[:location_id]}" unless params[:location_id].blank?
-    unless params[:category_id].blank?
+    conditions << "location_id = #{params[:location_id]}" if !params[:location_id].blank? && params[:location_id] != "0"
+    if !params[:category_id].blank? && params[:category_id] != "0"
       conditions << "category_id = #{params[:category_id]}"
       @category = Category.find(params[:category_id])
       @sub_categories = @category.children.collect{|x| [x.id, x.name]}
     end
-    conditions << "sub_category_id = #{params[:sub_category_id]}" unless params[:sub_category_id].blank?
-
+    conditions << "sub_category_id = #{params[:sub_category_id]}" if !params[:sub_category_id].blank? && params[:sub_category_id] != "0"
+    
     @classifieds = Classified.paginate(:page => params[:page], :order => "created_at DESC", :conditions => conditions.join(" AND ")).each do |classified|
       date = classified.created_at.to_date
       if @results[date].blank?

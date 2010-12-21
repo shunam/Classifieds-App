@@ -23,10 +23,17 @@
     </div>
     <div class="app_clear">&nbsp;</div>
     <div class="subcategory_1 float_left">
-      <p>Specific Location:</p>
+      <p>Location:</p>
     </div>
     <div class="subcategory_2 float_left">
       <%= f.select :location_id, @locations.collect{|x| [x.name,x.id]} %>
+    </div>
+    <div class="app_clear">&nbsp;</div>
+    <div class="subcategory_1 float_left">
+      <p>Specific Location:</p>
+    </div>
+    <div class="subcategory_2 float_left">
+      <%= f.text_field :typed_location, :class => "input_classified" %>
     </div>
     <div class="app_clear">&nbsp;</div>
     <div class="subcategory_1 float_left">

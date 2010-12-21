@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.access_token '/access_token', :controller => "application", :action => "access_token"
+  
   map.root :controller => "home"
   map.post_classified '/post_classified', :controller => "home", :action => "post_classified", :method => :get
   map.create_post_classified '/post_classified/create', :controller => "home", :action => "create_classified", :method => :post

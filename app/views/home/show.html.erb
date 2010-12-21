@@ -1,6 +1,6 @@
 <%= render :partial => "header.html" %>
 <div class="pic_header detail_content float_left margin_padding">
-  <input type="submit" value="Back to results" class="float_right"/>
+  <%= link_to "Back to results", :back %>
   <div class="clear"></div>
   <br/>
   <div class="margin_padding">
@@ -11,13 +11,13 @@
       <p><%= @classified.title %></p>
     </div>
     <div class="float_left table_content_typed remove_border">
-      <p><%= @classified.location_name %></p>
+      <p><%= @classified.typed_location %></p>
     </div>
     <div class="clear"></div>
   </div>
   <div class="separator"></div>
   <p>Date: <%= @classified.created_at %><br/>
-    Posted by: firstname_lastname (link_user_name_profile)
+    Posted by: <%= @classified.first_name %> <%= @classified.last_name %> ( <a href="<%= @classified.url %>"><%= @classified.url %></a> )
   </p>
   <div class="separator"></div>
   <p>
