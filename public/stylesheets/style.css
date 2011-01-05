@@ -12,7 +12,7 @@
     padding: 5px;
 }
 .pic_header{
-    width: 600px;
+    width: 620px;
     height: 125px;
 }
 .pic_footer{
@@ -109,14 +109,15 @@ body p a{
     color:blue;
 }
 .button{
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
 }
 .table_head{
     border: 1px solid black;
     text-align: center;
+    background: #6699bb;
 }
-.table_head a{
+.table_head a, .white{
     color: white;
 }
 .table_head h3{
@@ -177,6 +178,7 @@ body p a{
     margin-top: 10px;
     font-size: 24px;
     font-weight: bold;
+    font-family: arial;
 }
 table{
     text-align: center;
