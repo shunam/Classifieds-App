@@ -19,10 +19,7 @@
     height: 50px;
 }
 .detail_content{
-    height: 500px;
-    overflow: scroll;
-    overflow-x: hidden;
-    border: 1px solid black;
+    height: auto;
 }
 .content{
     width: 900px;
@@ -176,7 +173,7 @@ body p a{
 .h_center{
     text-align: center;
     margin-top: 10px;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     font-family: arial;
 }
