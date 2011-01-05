@@ -11,7 +11,7 @@
       <p>
         <%= link_to "HOME", root_path %>&nbsp;&gt;&nbsp;
         Location&nbsp;&gt;&nbsp;
-        <%= select_tag "location_id", options_for_select(@locations.collect{|x| [x.name,x.id]}, params[:location_id].to_i) %>
+        <%= select_tag "location_id", options_for_select([["All", 0]] + (@locations.collect{|x| [x.name,x.id]}), params[:location_id].to_i) %>
       </p>
       <div class="clear"></div>
     </div>
