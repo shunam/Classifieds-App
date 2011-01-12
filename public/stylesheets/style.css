@@ -140,6 +140,9 @@ body p{
     width: 66px;
     text-align: right;
 }
+.normal{
+		color: blue;
+}
 .link_button{
     width: 175px;
     height: 30px;
@@ -183,17 +186,17 @@ thead{
     background: #e2e2e2;
 }
 .subcategory_1{
-    width: 120px;
+    width: 198px;
 }
 .subcategory_2{
-    width: 370px;
+    width: 410px;
     margin-left:10px;
 }
 .subcategory_3{
-    width: 290px;
+    width: 300px;
 }
 .subcategory_4{
-    width: 201px;
+    width: 310px;
     margin-left:10px;
 }
 .input_classified{
