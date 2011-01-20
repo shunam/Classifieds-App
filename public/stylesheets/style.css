@@ -12,17 +12,14 @@
     padding: 5px;
 }
 .pic_header{
-    width: 738px;
+    width: 620px;
     height: 125px;
 }
 .pic_footer{
     height: 50px;
 }
 .detail_content{
-    height: 400px;
-    overflow: scroll;
-    overflow-x: hidden;
-    border: 1px solid black;
+    height: auto;
 }
 .content{
     width: 900px;
@@ -97,23 +94,25 @@
 /*classified*/
 body p{
     font-size: 10pt;
-    font-family: arial, times new roman;
+    font-family: arial;
 }
 .header{
-    background: #e2e2e2;
+    background: #6699bb;
     border: 1px solid;
-    height: 70px;
-}
-body p a{
-    color:blue;
+    height: 50px;
+    color: white;
 }
 .button{
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
 }
 .table_head{
-    border: 1px solid black;
     text-align: center;
+    background: #6699bb;
+}
+.table_head a, .white{
+    color: white;
+    font-family: arial;
 }
 .table_head h3{
     margin-bottom: 0px!important;
@@ -139,6 +138,9 @@ body p a{
 .table_content_location{
     width: 66px;
     text-align: right;
+}
+.normal{
+		color: blue;
 }
 .link_button{
     width: 175px;
@@ -170,8 +172,10 @@ body p a{
 /*category*/
 .h_center{
     text-align: center;
-    margin-top: 23px;
-    font-size: 14pt;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: arial;
 }
 table{
     text-align: center;
@@ -181,17 +185,17 @@ thead{
     background: #e2e2e2;
 }
 .subcategory_1{
-    width: 120px;
+    width: 198px;
 }
 .subcategory_2{
-    width: 370px;
+    width: 410px;
     margin-left:10px;
 }
 .subcategory_3{
-    width: 290px;
+    width: 300px;
 }
 .subcategory_4{
-    width: 201px;
+    width: 310px;
     margin-left:10px;
 }
 .input_classified{

@@ -3,11 +3,11 @@
 <div class="pic_header detail_content float_left margin_padding">
   <% @results.each do |date, values| %>
     <div class="table_head margin_padding">
-      <h3><%= date.strftime("%A %d %B %Y") %></h3>
+      <h3 class="white"><%= date.strftime("%A %d %B %Y") %></h3>
     </div>
     <div class="margin_padding">
       <% values.each do |value| %>
-      <a href="<%= show_classified_path(value)%>">
+      <a href="<%= show_classified_path(value)%>", class="normal">
         <div class="float_left table_content_price">
           <p><%= value.price %></p>
         </div>

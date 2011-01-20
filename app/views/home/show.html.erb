@@ -1,6 +1,6 @@
 <%= render :partial => "header.html" %>
 <div class="pic_header detail_content float_left margin_padding">
-  <%= link_to "Back to results", :back %>
+  <%= link_to "Back to results", :back, :class => "normal" %>
   <div class="clear"></div>
   <br/>
   <div class="margin_padding">
@@ -17,7 +17,7 @@
   </div>
   <div class="separator"></div>
   <p>Date: <%= @classified.created_at %><br/>
-    Posted by: <%= @classified.first_name %> <%= @classified.last_name %> ( <a href="#"  onclick="window.top.location = '<%= @classified.url %>'"><%= @classified.url %></a> )
+    Posted by: <%= @classified.first_name %> <%= @classified.last_name %> ( <a href="#"  onclick="window.top.location = '<%= @classified.url %>'" class="normal"><%= @classified.url %></a> )
   </p>
   <div class="separator"></div>
   <p>

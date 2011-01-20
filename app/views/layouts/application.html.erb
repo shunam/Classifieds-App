@@ -4,12 +4,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>classified apps</title>
     <%= stylesheet_link_tag "style", "reset"  %>
-    <%= javascript_include_tag :defaults, "jquery-1.4.2.min", "jquery.selectboxes.pack"  %>
-    <script type="text/javascript">
-      jQuery.noConflict();
-    </script>
+    <%= javascript_include_tag :defaults, "jquery-1.4.2.min", "jquery.selectboxes.pack" %>
+
   </head>
-  <body>
+  <body onLoad="resizeFrame();">
     <div class="content margin_padding">
       <%= yield %>
       <div class="banner">
@@ -17,4 +15,15 @@
       <div class="app_clear">&nbsp;</div>
     </div>
   </body>
+		<script type="text/javascript">
+    	jQuery.noConflict();
+			document.domain = 'localhost';
+			var x = parseInt(document.body.offsetHeight);
+			var y = parseInt(parent.window.document.getElementById('parentFrame').height);
+			var z = (y+x)+'px';
+			alert('x'+x);alert('y'+y);alert('z'+z);
+			function resizeFrame(){
+				parent.window.document.getElementById('parentFrame').style.height = z;
+			}
+		</script>
 </html>
