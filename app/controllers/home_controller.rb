@@ -34,6 +34,8 @@ class HomeController < ApplicationController
     end
     if @classified.save
       redirect_to show_classified_path(@classified)
+    else
+      render :action => "post_classified"
     end
   end
 

@@ -1,5 +1,6 @@
 class Classified < ActiveRecord::Base
   has_many :pictures
+  validates_presence_of :title, :price
 
   cattr_reader :per_page
   @@per_page = 100
