@@ -8,6 +8,7 @@
 </div>
 <div class="pic_header detail_content float_left margin_padding">
   <% form_for @classified, :url => create_post_classified_path, :html => {:multipart => true} do |f| %>
+    <%= f.error_messages %>
     <div class="subcategory_1 float_left">
       <p>Posting Title:</p>
     </div>
