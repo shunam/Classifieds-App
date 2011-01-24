@@ -11,7 +11,6 @@
        $(document).ready(function() {
 				var parent_url = decodeURIComponent( document.location.hash.replace( /^#/, '' ) ),link;
 				var x = document.body.scrollHeight + 150;
-				alert(x);
 				
 				function setHeight() {
 					$.postMessage({ if_height: x }, parent_url, parent );
