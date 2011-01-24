@@ -4,10 +4,25 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>classified apps</title>
     <%= stylesheet_link_tag "style", "reset"  %>
-    <%= javascript_include_tag :defaults, "jquery-1.4.2.min", "jquery.selectboxes.pack" %>
-
+    <%= javascript_include_tag :defaults, "jquery-1.4.2.min", "jquery.selectboxes.pack", "jquery.ba-postmessage.min.js" %>
+		<script type="text/javascript">
+    	jQuery.noConflict();
+			(function ($) {
+       $(document).ready(function() {
+				var parent_url = decodeURIComponent( document.location.hash.replace( /^#/, '' ) ),link;
+				var x = document.body.scrollHeight + 150;
+				alert(x);
+				
+				function setHeight() {
+					$.postMessage({ if_height: x }, parent_url, parent );
+				};
+				setHeight();
+				setInterval(setHeight, 500);
+       });
+			})(jQuery);
+		</script>		
   </head>
-  <body onLoad="resizeFrame();">
+  <body>
     <div class="content margin_padding">
       <%= yield %>
       <div class="banner">
@@ -15,15 +30,5 @@
       <div class="app_clear">&nbsp;</div>
     </div>
   </body>
-		<script type="text/javascript">
-    	jQuery.noConflict();
-			document.domain = 'localhost';
-			var x = parseInt(document.body.offsetHeight);
-			var y = parseInt(parent.window.document.getElementById('parentFrame').height);
-			var z = (y+x)+'px';
-			alert('x'+x);alert('y'+y);alert('z'+z);
-			function resizeFrame(){
-				parent.window.document.getElementById('parentFrame').style.height = z;
-			}
-		</script>
+
 </html>
