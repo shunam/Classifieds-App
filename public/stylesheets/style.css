@@ -23,6 +23,7 @@
 }
 .content{
     width: 900px;
+		height: 500px;
 }
 .content ul{
     list-style-type: none;
@@ -35,7 +36,7 @@
     color: blue;
 }
 .content_header{
-    background: #6699bb;
+    background: #288AB3;
     border: 1px solid;
     color: white;
     padding: 5px;
@@ -97,7 +98,7 @@ body p{
     font-family: arial;
 }
 .header{
-    background: #6699bb;
+    background: #288AB3;
     border: 1px solid;
     height: 50px;
     color: white;
@@ -108,7 +109,7 @@ body p{
 }
 .table_head{
     text-align: center;
-    background: #6699bb;
+    background: #288AB3;
 }
 .table_head a, .white{
     color: white;
@@ -140,7 +141,7 @@ body p{
     text-align: right;
 }
 .normal{
-		color: blue;
+		color: #288AB3;
 }
 .link_button{
     width: 175px;
