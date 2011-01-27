@@ -16,11 +16,11 @@
         function iframeResizePipe()
         {
            // What's the page height?
-           var height = $("#body").height();
-           var width = $("#body").width();
+           var height = $("#body")[0].offsetHeight;
+           //var width = $("#body").width();
 
            // Going to 'pipe' the data to the parent through the helpframe..
-           $('#helpframe').attr("src",'<%= IFRAME_HELPER %>?height='+height+'&width='+width+'&cacheb='+Math.random());
+           $('#helpframe').attr("src",'<%= IFRAME_HELPER %>?height='+height+'&cacheb='+Math.random());
 
         }
         iframeResizePipe();
