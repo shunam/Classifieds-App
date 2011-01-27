@@ -1,4 +1,20 @@
 <%= render :partial => "custom_javascript_find_categories.html", :locals => { :all => true } %>
+    <iframe id="helpframe" src='' height='0' width='0' frameborder='0'></iframe>
+    <script type="text/javascript">
+      jQuery(document).ready(function($){
+        function iframeResizePipe()
+        {
+           // What's the page height?
+           var height = $("#body").height();
+           var width = $("#body").width();
+
+           // Going to 'pipe' the data to the parent through the helpframe..
+           $('#helpframe').attr("src",'<%= IFRAME_HELPER %>?height='+height+'&width='+width+'&cacheb='+Math.random());
+
+        }
+        iframeResizePipe();
+      });
+    </script>
 <div class="pic_header float_left header margin_padding">
   <% form_tag result_classified_path do %>
     <div class="float_left">
