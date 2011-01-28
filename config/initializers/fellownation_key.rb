@@ -7,5 +7,5 @@ else
   SITE = 'http://fellownation.com'
   FKEY = "p2wfEpMugQvTONsPBLgg"
   FSECRET = "7HfqxxAEj4TrhOaJaQs03Wu7MKvSQfK4zpwh7lS4"
-  IFRAME_HELPER = "http://fellownation.com/iframe_helper.html"
+  IFRAME_HELPER = "http://apps.fellownation.com/iframe_helper.html"
 end
