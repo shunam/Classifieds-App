@@ -13,6 +13,8 @@ class HomeController < ApplicationController
     sub_category_jobs_temp = Category.find(:all, :conditions => "parent_id = 70")
     @sub_category_jobs = restructure_array(sub_category_jobs_temp, 2)
 
+    session[:fellownation_user_id] = params[:fellownation_user_id]
+
   end
 
   def post_classified
@@ -20,8 +22,7 @@ class HomeController < ApplicationController
   end
 
   def create_classified
-    prepare_token
-    response = @access_token.post('/API/user_info', "token=#{session["token_#{session[:fellownation_user_id]}"]}")
+    response = request_webservius('/API/user_info', {:user_id => session[:fellownation_user_id] })
     result = ActiveSupport::JSON.decode(response.body)["results"]
     @classified = Classified.new(params[:classified])
     @classified.first_name = result["first_name"]
