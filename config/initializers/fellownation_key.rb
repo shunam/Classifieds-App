@@ -9,5 +9,5 @@ else
   FSECRET = "7HfqxxAEj4TrhOaJaQs03Wu7MKvSQfK4zpwh7lS4"
   IFRAME_HELPER = "http://apps.fellownation.com/iframe_helper.html"
 end
-WEBSERVIUS_PATH = "http://svc.webservius.com/v1/BrightVent/FN"
+WEBSERVIUS_PATH = "http://api.fellownation.com"
 WEBSERVIUS_KEY = "Dbsv8wmfax2J5xzAK7_KZ7qrXIiXWR1j"
