@@ -22,7 +22,7 @@ class HomeController < ApplicationController
   end
 
   def create_classified
-    response = request_webservius('/API/user_info', {:user_id => session[:fellownation_user_id] })
+    response = request_webservius('/API/user_info', {:user_id => session[:fellownation_user_id] }, :post)
     result = ActiveSupport::JSON.decode(response.body)["results"]
     @classified = Classified.new(params[:classified])
     @classified.first_name = result["first_name"]
