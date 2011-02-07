@@ -1,0 +1,9 @@
+if RAILS_ENV == 'development' || RAILS_ENV == 'test' || RAILS_ENV == 'cucumber'
+  SITE = 'http://dev.localhost.local:3000'
+  FKEY = "qy5rSv5heQqKi2UpLY4f"
+  FSECRET = "kqpMnef6DbJmCfE9RvbAMqPX34hDd7v8G8rZs9Xd"
+else
+  SITE = 'http://fellownation.com'
+  FKEY = "p2wfEpMugQvTONsPBLgg"
+  FSECRET = "7HfqxxAEj4TrhOaJaQs03Wu7MKvSQfK4zpwh7lS4"
+end
