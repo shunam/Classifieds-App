@@ -34,7 +34,7 @@ class HomeController < ApplicationController
       end
     end
     if @classified.save
-      redirect_to show_classified_path(@classified)
+      redirect_to show_classified_path(@classified).concat "?create=success"
     else
       render :action => "post_classified"
     end
